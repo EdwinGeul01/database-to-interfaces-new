@@ -10,10 +10,9 @@ import { loadModules } from '../../repo/LoadModules'
  */
 export async function initModules(
 	DBModuleToUse: string,
-	connectionProps: IconnectionProperties,
-	additionalProps?: Record<string, any>
+	connectionProps: IconnectionProperties & { [key: string]: any }
 ): Promise<dataBaseHandler> {
-	const result = await loadModules({ ...connectionProps, ...additionalProps })
+	const result = await loadModules({ ...connectionProps })
 
 	const databaseController = result.databasesAvailable.get(DBModuleToUse) as dataBaseHandler
 

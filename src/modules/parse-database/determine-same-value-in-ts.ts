@@ -6,7 +6,13 @@
  */
 export function determineSameValueInTypescript(mysqlType: string): string {
 	//if is string
-	if (mysqlType.includes('varchar') || mysqlType.includes('text') || mysqlType.includes('char')) {
+	if (
+		mysqlType.includes('varchar') ||
+		mysqlType.includes('text') ||
+		mysqlType.includes('char') ||
+		mysqlType.includes('character varying') ||
+		mysqlType.includes('character')
+	) {
 		return 'string'
 	}
 
