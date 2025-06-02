@@ -1,0 +1,31 @@
+{
+	"name": "database-to-interfaces",
+	"version": "0.0.1",
+	"description": "create database interfaces to typesscript",
+	"main": "index.js",
+	"scripts": {
+		"start": "tsc && node dist/index.js",
+		"create-init": "tsc --init",
+		"tsdoc-gen": "typedoc --entryPointStrategy Expand src "
+	},
+	"keywords": [
+		"database",
+		"mysql",
+		"posgres",
+		"typesscript",
+		"interfaces"
+	],
+	"author": "EdwinGeul01",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^22.15.21",
+		"typedoc": "^0.28.5",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"mysql2": "^3.14.1"
+	}
+}
+
+
+
