@@ -9,7 +9,7 @@ import { IColumnDescription, dataBaseHandler } from '../../_interfaces/database-
  * It implements methods to interact with a MySQL database, such as running raw queries,
  * retrieving table names, and getting column descriptions.
  */
-export default class databaseController extends dataBaseHandler {
+export default class databaseController extends dataBaseHandler<IconnectionProperties> {
 	constructor(connectionProperties: IconnectionProperties) {
 		super({
 			...connectionProperties
@@ -27,7 +27,7 @@ export default class databaseController extends dataBaseHandler {
 		)
 
 		const tablesNamesArray: string[] = tablesNames.map((table: any) => table.TABLE_NAME)
-		return tablesNamesArray;
+		return tablesNamesArray
 	}
 
 	async getTablesMapWithColumns(): Promise<Map<string, IColumnDescription[]>> {

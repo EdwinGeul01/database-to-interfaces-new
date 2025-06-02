@@ -18,13 +18,13 @@ export interface IColumnDescription {
 
 interface IdataBaseHandlerPropertie extends IconnectionProperties {}
 
-export abstract class dataBaseHandler {
+export abstract class dataBaseHandler<T extends IconnectionProperties = IconnectionProperties> {
 	/**
 	 * The connection properties for the database handler.
 	 */
-	public connectionProps: IconnectionProperties
+	public connectionProps: T
 
-	constructor(connection: IconnectionProperties) {
+	constructor(connection: T) {
 		this.connectionProps = connection
 	}
 
