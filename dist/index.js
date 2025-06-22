@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAvailableModules = exports.initModules = exports.saveInterfaceFile = exports.convertTablesToTypescriptInterface = void 0;
+var convert_database_tables_to_interfaces_string_1 = require("./src/services/database-to-ts/convert-database-tables-to-interfaces-string");
+Object.defineProperty(exports, "convertTablesToTypescriptInterface", { enumerable: true, get: function () { return convert_database_tables_to_interfaces_string_1.convertTablesToTypescriptInterface; } });
+var save_interface_file_1 = require("./src/services/save-interface-file/save-interface-file");
+Object.defineProperty(exports, "saveInterfaceFile", { enumerable: true, get: function () { return save_interface_file_1.saveInterfaceFile; } });
+var init_modules_1 = require("./src/services/init-modules/init-modules");
+Object.defineProperty(exports, "initModules", { enumerable: true, get: function () { return init_modules_1.initModules; } });
+var get_available_modules_1 = require("./src/services/init-modules/get-available-modules");
+Object.defineProperty(exports, "getAvailableModules", { enumerable: true, get: function () { return get_available_modules_1.getAvailableModules; } });
