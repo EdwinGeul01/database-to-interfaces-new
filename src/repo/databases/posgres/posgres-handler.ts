@@ -90,6 +90,16 @@ export default class databaseController extends dataBaseHandler<IconnectionPrope
 		return tablesMap
 	}
 
+	async testConnection() {
+		try {
+			await this.runRawQuery('SELECT 1', this.connectionProps)
+			return true
+		} catch (error) {
+			console.error('Error testing PostgreSQL connection:', error)
+			return false
+		}
+	}
+
 	protected async runRawQuery(
 		query: string,
 		connectionProperties: IconnectionProperties,

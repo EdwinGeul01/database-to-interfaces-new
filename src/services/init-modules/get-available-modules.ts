@@ -1,7 +1,4 @@
-import { IconnectionProperties } from '../../interfaces/connection-properties'
-import { dataBaseHandler } from '../../repo/_interfaces/database-handler'
-import { loadModules, loadModulesAvaliables } from '../../repo/LoadModules'
-
+import { availableModules } from '../../config/avalible-modules'
 /**
  * get the available database modules and return the database handler.
  * @param connectionProps - the connection properties to the database
@@ -9,11 +6,5 @@ import { loadModules, loadModulesAvaliables } from '../../repo/LoadModules'
  * @returns
  */
 export async function getAvailableModules(): Promise<string[]> {
-	const modulesAvailables = await loadModulesAvaliables()
-
-	const databasesAvailable = modulesAvailables.databasesAvailable.keys()
-
-	const modulesList = Array.from(databasesAvailable)
-
-	return modulesList
+	return availableModules
 }

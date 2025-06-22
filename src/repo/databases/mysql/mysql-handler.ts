@@ -17,9 +17,6 @@ export default class databaseController extends dataBaseHandler<IconnectionPrope
 	}
 
 	async getTablesNames(): Promise<string[]> {
-		//example promise
-		console.log('Fetching table names from MySQL database:', this.connectionProps.database)
-
 		const tablesNames = await this.runRawQuery(
 			'SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = ?',
 			this.connectionProps,
@@ -28,6 +25,16 @@ export default class databaseController extends dataBaseHandler<IconnectionPrope
 
 		const tablesNamesArray: string[] = tablesNames.map((table: any) => table.TABLE_NAME)
 		return tablesNamesArray
+	}
+
+	async testConnection(): Promise<boolean> {
+		try {
+			await this.runRawQuery('SELECT 1 + 1', this.connectionProps)
+			return true
+		} catch (error) {
+			console.error('Error testing MySQL connection')
+			return false
+		}
 	}
 
 	async getTablesMapWithColumns(): Promise<Map<string, IColumnDescription[]>> {
@@ -90,7 +97,7 @@ export default class databaseController extends dataBaseHandler<IconnectionPrope
 				database: connectionProperties.database
 			})
 		} catch (error) {
-			throw 'Error connecting to MySQL, check your connection properties.'
+			throw new Error('Error connecting to MySQL, check your connection properties.')
 		}
 
 		const queryResult = await connection.execute(query, params)

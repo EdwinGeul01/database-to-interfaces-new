@@ -23,4 +23,6 @@ export interface IconnectionProperties {
 	 * @example '1234'
 	 */
 	password: string
+
+	schema?: string // Optional, used for PostgreSQL
 }

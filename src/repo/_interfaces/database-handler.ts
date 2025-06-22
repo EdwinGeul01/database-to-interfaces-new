@@ -44,6 +44,12 @@ export abstract class dataBaseHandler<T extends IconnectionProperties = Iconnect
 	abstract getTablesMapWithColumns(): Promise<Map<string, IColumnDescription[]>>
 
 	/**
+	 * this function tests the connection to the database.
+	 * @return a promise that resolves to true if the connection is successful, false otherwise.
+	 */
+	abstract testConnection(): Promise<boolean>
+
+	/**
 	 * this funciton runs a raw query against the MySQL database.
 	 * @param query - The SQL query to be executed.
 	 * @param params - Optional parameters to be used in the query.

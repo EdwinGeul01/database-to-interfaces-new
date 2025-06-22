@@ -6,7 +6,10 @@ import { convertDatabaseTypeToTypescriptInterfaceString } from '../../modules/pa
  * @param tables  a mpa of table names to their column descriptions
  * @returns
  */
-export function convertTablesToTypescriptInterface(tables: Map<string, IColumnDescription[]>): string {
+export function convertTablesToTypescriptInterface(
+	tables: Map<string, IColumnDescription[]>,
+	prefix: string = ''
+): string {
 	let interfaceString = ' // updated ' + new Date().toString() + '\n\n'
 	interfaceString +=
 		'export interface json_type {\
@@ -14,7 +17,7 @@ export function convertTablesToTypescriptInterface(tables: Map<string, IColumnDe
 }\n\n'
 
 	for (const [tableName, columnDescriptions] of tables.entries()) {
-		interfaceString += `export interface ${''}${tableName} {\n`
+		interfaceString += `export interface ${prefix}${tableName} {\n`
 		columnDescriptions.forEach((column) => {
 			const columnString = convertDatabaseTypeToTypescriptInterfaceString(column)
 			interfaceString += columnString

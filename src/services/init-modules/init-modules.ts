@@ -8,17 +8,21 @@ import { loadModules } from '../../repo/LoadModules'
  * @param DBModuleToUse - the database module to use (e.g., 'mysql', 'postgresql')
  * @returns
  */
-export async function initModules(
+export function initModules(
 	DBModuleToUse: string,
 	connectionProps: IconnectionProperties & { [key: string]: any }
-): Promise<dataBaseHandler> {
-	const result = await loadModules({ ...connectionProps })
+): dataBaseHandler {
+	try {
+		const result = loadModules({ ...connectionProps })
 
-	const databaseController = result.databasesAvailable.get(DBModuleToUse) as dataBaseHandler
+		const databaseController = result.databasesAvailable.get(DBModuleToUse) as dataBaseHandler
 
-	if (!databaseController) {
-		throw new Error(`${DBModuleToUse} database handler not found`)
+		if (!databaseController) {
+			throw new Error(`${DBModuleToUse} database handler not found`)
+		}
+
+		return databaseController
+	} catch (error) {
+		throw new Error(`Error initializing modules: ${error instanceof Error ? error.message : 'Unknown error'}`)
 	}
-
-	return databaseController
 }

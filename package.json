@@ -2,9 +2,11 @@
 	"name": "database-to-interfaces",
 	"version": "0.0.1",
 	"description": "create database interfaces to typesscript",
-	"main": "index.js",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
 		"start": "tsc && node dist/index.js",
+		"build": "tsc",
 		"create-init": "tsc --init",
 		"tsdoc-gen": "typedoc --entryPointStrategy Expand src "
 	},
