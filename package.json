@@ -1,9 +1,13 @@
 {
 	"name": "database-to-interfaces",
-	"version": "0.0.36",
+	"version": "0.0.37",
 	"description": "create database interfaces to typesscript",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EdwinGeul01/database-to-interfaces-new"
+	},
 	"scripts": {
 		"start": " node build.js  && node dist/index.js",
 		"build": "tsc && node build.js",
