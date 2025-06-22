@@ -2,5 +2,5 @@ src/*
 docs/*
 node_modules/*
 index.ts
-.tsconfig.json
+tsconfig.json
 .prettierrc    
