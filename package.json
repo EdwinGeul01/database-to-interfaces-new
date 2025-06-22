@@ -1,6 +1,6 @@
 {
 	"name": "database-to-interfaces",
-	"version": "0.0.35",
+	"version": "0.0.36",
 	"description": "create database interfaces to typesscript",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
